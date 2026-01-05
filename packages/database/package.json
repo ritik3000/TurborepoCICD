@@ -1,0 +1,23 @@
+{
+    "name": "@repo/db",
+    "version": "0.0.0",
+    "main": "dist/index.js",
+    "type": "module",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@prisma/adapter-pg": "^7.2.0",
+        "@prisma/client": "^7.2.0",
+        "dotenv": "^17.2.3",
+        "pg": "^8.16.3"
+    },
+    "exports": {
+        "./client": "./dist/index.js"
+    },
+    "devDependencies": {
+        "@types/pg": "^8.16.0",
+        "@repo/typescript-config": "*",
+        "prisma": "^7.2.0"
+    }
+}
