@@ -2,6 +2,7 @@
     "name": "@repo/db",
     "version": "0.0.0",
     "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
     "type": "module",
     "scripts": {
         "build": "tsc"
@@ -14,6 +15,7 @@
     },
     "exports": {
         "./client": {
+            "types": "./dist/src/index.d.ts",
             "default": "./dist/src/index.js"
         }
     },
