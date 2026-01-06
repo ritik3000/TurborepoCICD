@@ -1,0 +1,53 @@
+name: Deploy Turborepo to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build all apps
+        run: npm run build
+
+      - name: Deploy to EC2 and restart PM2 processes
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.E2_USER || secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+
+            cd ${{ secrets.EC2_PATH }}
+
+            echo "📥 Pulling latest code"
+            git pull origin main
+
+            echo "📦 Installing dependencies"
+            npm install
+
+            echo "🏗️ Building apps"
+            npm run build
+
+            echo "🔄 Restarting PM2 processes"
+            pm2 restart http-server
+            pm2 restart fe-server
+            pm2 restart ws-server
+
+            echo "✅ Deployment completed"
