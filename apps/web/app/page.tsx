@@ -1,5 +1,8 @@
 
+import Image from "next/image";
 import styles from "./page.module.css";
+import urvashiMain from "./images/urvashi.jpg";
+import urvashiSecond from "./images/urvashi_1.png";
 
 export default function Home() {
   return (
@@ -36,6 +39,27 @@ export default function Home() {
           <br />
           <span className={styles.signatureName}>RD</span>
         </p>
+
+        <div className={styles.gallery}>
+          <figure className={styles.photo}>
+            <Image
+              src={urvashiMain}
+              alt="Urvashi smiling, cherished in my heart"
+              className={styles.photoImg}
+              placeholder="blur"
+              sizes="(max-width: 900px) 100vw, 360px"
+            />
+          </figure>
+          <figure className={styles.photo}>
+            <Image
+              src={urvashiSecond}
+              alt="Another moment with Urvashi that I treasure"
+              className={styles.photoImg}
+              placeholder="blur"
+              sizes="(max-width: 900px) 100vw, 360px"
+            />
+          </figure>
+        </div>
       </section>
     </main>
   );
