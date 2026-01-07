@@ -12,7 +12,7 @@ export default async function Home() {
       {user?.password}
       <br />
       <div>
-        hi there
+       Hello Urvashi
       </div>
     </div>
   );
