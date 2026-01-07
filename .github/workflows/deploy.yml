@@ -37,15 +37,6 @@ jobs:
 
             cd ${{ secrets.EC2_PATH }}
 
-            echo "📥 Pulling latest code"
-            git pull origin main
-
-            echo "📦 Installing dependencies"
-            npm install
-
-            echo "🏗️ Building apps"
-            npm run build
-
             echo "🔄 Restarting PM2 processes"
             pm2 restart http-server
             pm2 restart fe-server
