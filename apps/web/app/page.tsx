@@ -30,7 +30,7 @@ export default function Home() {
         </p>
 
         <p className={styles.quote}>
-          &ldquo;If I found you again in another lifetime, I would still choose
+          &ldquo;If I find you again in another lifetime, I would still choose
           you, every single time.&rdquo;
         </p>
 
