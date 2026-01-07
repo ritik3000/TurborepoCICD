@@ -10,7 +10,7 @@ export default function Home() {
       <section className={styles.card}>
         <p className={styles.smallText}>For my beloved wife</p>
         <h1 className={styles.heading}>
-          Gol mooh, you are the heart of my world.
+          Urvashi, you are the heart of my world.
         </h1>
 
         <p className={styles.bodyText}>
